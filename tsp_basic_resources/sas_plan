@@ -1,0 +1,12 @@
+<<<<<<< Updated upstream
+(action-1 a b c)
+; cost = 1 (unit cost)
+=======
+(move tm bh)
+(move bh mm)
+(move mm cj)
+(move cj sb)
+(move sb ab)
+(move ab hd)
+; cost = 6 (unit cost)
+>>>>>>> Stashed changes
