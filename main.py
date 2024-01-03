@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 from pddl_domain_problem import PDDL
 import subprocess
 from io_parser import parse_fast_downward_output
@@ -15,6 +16,16 @@ with open('domain.pddl', 'w') as domain_file:
 # Save the problem to a file named 'problem.pddl'
 with open('problem.pddl', 'w') as problem_file:
     problem_file.write(problem)
+=======
+from processes_manager import run_py2pddl_parse, run_py2pddl_init, run_fast_downward
+
+# run only once at the creation of the class
+# run_py2pddl_init("tsp_basic.py", "TravellingSalesmanBasic", "city", "visited connected current", "move")
+
+#run_py2pddl_parse("tsp_basic.py")
+run_fast_downward()
+
+>>>>>>> Stashed changes
 
 # Define the command to be executed
 command = ["/home/mihai/tools/downward/fast-downward.py", "./domain.pddl", "./problem.pddl",
