@@ -27,22 +27,28 @@ def run_py2pddl_init(file_name, domain_problem_name, types, predicates, actions)
 
 
 def run_py2pddl_parse(file_name):
-    # Define the command and inputs
+    # Define the command
     command = ["python3", "-m", "py2pddl.parse", file_name]
-    # Start the subprocess and get the stdin, stdout, stderr
-    process = subprocess.Popen(command, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
-                               stderr=subprocess.PIPE, text=True)
 
+    # Start the subprocess and get the stdin, stdout, stderr
+    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+
+    # Wait for the process to finish and get the output and error
+    output, error = process.communicate()
+
+    # Check for errors
     if process.returncode != 0:
-        print(f"Error: {process.stderr}")
+        print("Error in command execution.")
+        print("Error Output:\n", error)
     else:
-        print(f"Output: {process.stdout}")
+        print("Command executed successfully!")
+        print("Output:\n", output)
 
 
 def run_fast_downward():
     # Define the command to be executed
-    command = ["/home/mihai/tools/downward/fast-downward.py", "./pddl_resources/domain.pddl",
-               "./pddl_resources/problem.pddl", "--heuristic", "h=ff()", "--search", "astar(h)"]
+    command = ["/home/mihai/tools/downward/fast-downward.py", "./domain.pddl",
+               "./problem.pddl", "--heuristic", "h=ff()", "--search", "astar(h)"]
 
     # Run the command
     process = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
