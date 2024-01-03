@@ -10,11 +10,11 @@ domain = pddl.get_domain()
 problem = pddl.get_problem()
 
 # Save the domain to a file named 'domain.pddl'
-with open('domain.pddl', 'w') as domain_file:
+with open('tsp_basic_resources/domain.pddl', 'w') as domain_file:
     domain_file.write(domain)
 
 # Save the problem to a file named 'problem.pddl'
-with open('problem.pddl', 'w') as problem_file:
+with open('tsp_basic_resources/problem.pddl', 'w') as problem_file:
     problem_file.write(problem)
 =======
 from processes_manager import run_py2pddl_parse, run_py2pddl_init, run_fast_downward
