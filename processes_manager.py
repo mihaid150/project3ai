@@ -59,4 +59,3 @@ def run_fast_downward():
         print(parse_fast_downward_output(process.stdout))
     else:
         print("Error in command execution.")
-        print("Error Output:\n", process.stderr)
